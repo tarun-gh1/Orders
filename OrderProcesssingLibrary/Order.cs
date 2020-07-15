@@ -4,11 +4,18 @@ namespace OrderProcesssingLibrary
 {
     public class Order
     {
-        private readonly IProduct product;
+       private readonly IPacking packing;
 
-        public Order(IProduct product)
+        public Order(IPacking packing)
         {
-            this.product = product;
+            this.packing = packing;
+        }
+
+        public bool ProcessOrder()
+        {
+            bool orderProcessed = false;
+
+            return orderProcessed;
         }
     }
 }

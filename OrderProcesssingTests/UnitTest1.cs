@@ -16,7 +16,18 @@ namespace OrderProcesssingTests
                 ProductName = "Physical"
 
             };
-            var order = new Order(p);
+            IPacking packing = new PackingSlip();
+            var order = new Order(packing);
+
+            Assert.False(order.ProcessOrder());
+        }
+
+        class PackingSlip : IPacking
+        {
+            public void GenerateSlip()
+            {
+                throw new NotImplementedException();
+            }
         }
     }
 }
