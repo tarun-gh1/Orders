@@ -10,7 +10,13 @@ namespace OrderProcesssingTests
         [Fact]
         public void Test1()
         {
-            var order = new Order(Product p);
+            Product p = new Product()
+            {
+                ProductType = (int)ProductTypes.ProdType.Physical,
+                ProductName = "Physical"
+
+            };
+            var order = new Order(p);
         }
     }
 }
