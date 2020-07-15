@@ -6,9 +6,19 @@ namespace OrderProcesssingLibrary
 {
     public class PackingSlip : IPacking
     {
+        public void AddFreeVideo()
+        {
+            
+        }
+
+        public void GenerateDuplicateSlip(int Dept)
+        {
+            
+        }
+
         public void GenerateSlip()
         {
 
-        }
+        }        
     }
 }

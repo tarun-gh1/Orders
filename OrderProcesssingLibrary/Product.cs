@@ -8,5 +8,6 @@ namespace OrderProcesssingLibrary
     {
         public int ProductType { get; set; }
         public string ProductName { get; set; }
+        public string Purpose { get ; set ; }
     }
 }

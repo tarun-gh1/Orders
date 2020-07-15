@@ -7,5 +7,7 @@ namespace OrderProcesssingLibrary
     public interface IPacking
     {
         void GenerateSlip();
+        void GenerateDuplicateSlip(int Dept);
+        void AddFreeVideo();
     }
 }

@@ -11,24 +11,47 @@ namespace OrderProcesssingTests
         [Fact]
         public void Test1()
         {
-            Product product = new Product()
+            IProduct product = new Product()
             {
                 ProductType = (int)ProductTypes.ProdType.Physical,
-                ProductName = "Physical"
+                ProductName = "Physical",
+                Purpose = "Upgrade"
 
             };
             IPacking packing = new PackingSlip();
-            INotify notify = new NotifyUser();
-            var order = new Order(packing, notify);
+            INotify notify = new Notify();
+            IMembership membership = new Membership();
+            var order = new Order(packing, notify, membership);
 
             Assert.False(order.ProcessOrder(product));
         }
 
+        class Order1
+        {
+            public Order1(IPacking packing, INotify notify, IMembership membership)
+            {
+
+            }
+            public bool ProcessOrder(IProduct product)
+            {
+                return false;
+            }
+        }
         class PackingSlip : IPacking
         {
+            public void GenerateDuplicateSlip(int Dept)
+            {
+                
+            }
+
             public void GenerateSlip()
             {
-                throw new NotImplementedException();
+               
+            }
+
+            public void AddFreeVideo()
+            {
+
             }
         }
     }
