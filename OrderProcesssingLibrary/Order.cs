@@ -22,9 +22,11 @@ namespace OrderProcesssingLibrary
             {
                 case (int)ProductTypes.ProdType.Physical:
                     packing.GenerateSlip();
+                    orderProcessed = true;
                     break;
                 case (int)ProductTypes.ProdType.Book:
                     packing.GenerateDuplicateSlip((int)Department.Royalty);
+                    orderProcessed = true;
                     break;
                 case (int)ProductTypes.ProdType.Membership:
                     if (product.Purpose == "Activate")
@@ -33,15 +35,19 @@ namespace OrderProcesssingLibrary
                         notify.NotifyUser(product.Purpose);
                     }
                     else if (product.Purpose == "Upgrade")
+                    {
                         membership.Upgrade();
                         notify.NotifyUser(product.Purpose);
+                    }
+                    orderProcessed = true;
                     break;
                 case (int)ProductTypes.ProdType.Video:
-                    if(product.ProductName == "Learning to Ski")
+                    if(String.Equals(product.ProductName, "Learning to Ski"))
                     {
                         packing.GenerateSlip();
                         packing.AddFreeVideo();
                     }
+                    orderProcessed = true;
                     break;
                 default:
                     break;

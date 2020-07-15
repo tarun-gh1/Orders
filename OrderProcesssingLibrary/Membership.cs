@@ -10,12 +10,12 @@ namespace OrderProcesssingLibrary
 
         public void Activate()
         {
-            
+            Console.WriteLine("Membership Activated");
         }
 
         public void Upgrade()
         {
-            
+            Console.WriteLine("Membership Upgraded");
         }
     }
 }

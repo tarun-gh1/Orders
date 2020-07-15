@@ -1,4 +1,7 @@
-﻿using System;
+﻿using OrderProcesssingLibrary;
+using System;
+using System.Data;
+using System.Net.Http.Headers;
 
 namespace Orders
 {
@@ -6,7 +9,20 @@ namespace Orders
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            IProduct product = new Product()
+            {
+                ProductType = (int)ProductTypes.ProdType.Video,
+                ProductName = "Learning to Ski",
+                Purpose = "Upgrade"
+
+            };
+            IPacking packing = new PackingSlip();
+            INotify notify = new Notify();
+            IMembership membership = new Membership();
+            var order = new Order(packing, notify, membership);
+            order.ProcessOrder(product);
+
+            Console.ReadLine();
         }
     }
 }

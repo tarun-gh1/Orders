@@ -13,8 +13,8 @@ namespace OrderProcesssingTests
         {
             IProduct product = new Product()
             {
-                ProductType = (int)ProductTypes.ProdType.Physical,
-                ProductName = "Physical",
+                ProductType = (int)ProductTypes.ProdType.Video,
+                ProductName = "Learning to Ski",
                 Purpose = "Upgrade"
 
             };
@@ -23,7 +23,7 @@ namespace OrderProcesssingTests
             IMembership membership = new Membership();
             var order = new Order(packing, notify, membership);
 
-            Assert.False(order.ProcessOrder(product));
+            Assert.True(order.ProcessOrder(product));
         }
 
         class Order1

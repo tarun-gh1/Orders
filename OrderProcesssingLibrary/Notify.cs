@@ -8,7 +8,7 @@ namespace OrderProcesssingLibrary
     {
         public void NotifyUser(string purpose)
         {
-            
+            Console.WriteLine($"User notified. Purpose: {purpose}");
         }
     }
 }
