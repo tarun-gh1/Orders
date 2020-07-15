@@ -2,6 +2,7 @@ using System;
 using Xunit;
 using OrderProcesssingLibrary;
 using System.Net.Http.Headers;
+using System.Collections.Specialized;
 
 namespace OrderProcesssingTests
 {
@@ -10,16 +11,17 @@ namespace OrderProcesssingTests
         [Fact]
         public void Test1()
         {
-            Product p = new Product()
+            Product product = new Product()
             {
                 ProductType = (int)ProductTypes.ProdType.Physical,
                 ProductName = "Physical"
 
             };
             IPacking packing = new PackingSlip();
-            var order = new Order(packing);
+            INotify notify = new NotifyUser();
+            var order = new Order(packing, notify);
 
-            Assert.False(order.ProcessOrder());
+            Assert.False(order.ProcessOrder(product));
         }
 
         class PackingSlip : IPacking

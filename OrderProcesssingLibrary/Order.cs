@@ -11,10 +11,17 @@ namespace OrderProcesssingLibrary
             this.packing = packing;
         }
 
-        public bool ProcessOrder()
+        public bool ProcessOrder(IProduct product)
         {
             bool orderProcessed = false;
+            switch(product.ProductType)
+            {
+                case (int)ProductTypes.ProdType.Physical:
 
+                    break;
+                default:
+                    break;
+            }
             return orderProcessed;
         }
     }
