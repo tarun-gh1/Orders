@@ -2,7 +2,7 @@
 
 namespace OrderProcesssingLibrary
 {
-    public class OrderProcesssing
+    public class Order
     {
     }
 }
